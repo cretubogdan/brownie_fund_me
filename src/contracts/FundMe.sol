@@ -24,9 +24,13 @@ contract FundMe {
     //address of the owner (who deployed the contract)
     address public owner;
 
+    AggregatorV3Interface public priceFeed;
+
     // the first person to deploy the contract is
     // the owner
-    constructor() public {
+    constructor(address _priceFeed) public {
+        // 0x694AA1769357215DE4FAC081bf1f309aDC325306
+        priceFeed = AggregatorV3Interface(_priceFeed);
         owner = msg.sender;
     }
 
@@ -45,16 +49,10 @@ contract FundMe {
 
     //function to get the version of the chainlink pricefeed
     function getVersion() public view returns (uint256) {
-        AggregatorV3Interface priceFeed = AggregatorV3Interface(
-            0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e
-        );
         return priceFeed.version();
     }
 
     function getPrice() public view returns (uint256) {
-        AggregatorV3Interface priceFeed = AggregatorV3Interface(
-            0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e
-        );
         (, int256 answer, , , ) = priceFeed.latestRoundData();
         // ETH/USD rate in 18 digit
         return uint256(answer * 10000000000);
