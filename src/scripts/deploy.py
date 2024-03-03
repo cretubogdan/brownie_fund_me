@@ -9,6 +9,7 @@ def deploy_fund_me():
     else:
         deploy_mocks()
         price_feed_address = MockV3Aggregator[-1].address
+    print("Let's deploy the contract...")
     fund_me = FundMe.deploy(price_feed_address, {"from": account})#, publish_source=True)
     print("Contract deployed to: {}".format(fund_me.address))
     return fund_me

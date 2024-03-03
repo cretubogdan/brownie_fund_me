@@ -9,5 +9,7 @@ networks:
   default: ganache-local
   sepolia:
     eth_usd_price_feed: "0x694AA1769357215DE4FAC081bf1f309aDC325306"
+  mainnet-fork-dev:
+    eth_usd_price_feed: "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419"
 wallets:
   from_key: ${PRIVATE_KEY}
