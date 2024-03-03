@@ -6,6 +6,7 @@ compiler:
       - "@chainlink=smartcontractkit/chainlink-brownie-contracts@0.8.0"
 dotenv: ../.env
 networks:
+  default: ganache-local
   sepolia:
     eth_usd_price_feed: "0x694AA1769357215DE4FAC081bf1f309aDC325306"
 wallets:
