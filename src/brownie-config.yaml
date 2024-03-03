@@ -8,7 +8,5 @@ dotenv: ../.env
 networks:
   sepolia:
     eth_usd_price_feed: "0x694AA1769357215DE4FAC081bf1f309aDC325306"
-  ganache-local:
-    eth_usd_price_feed: 
 wallets:
   from_key: ${PRIVATE_KEY}
